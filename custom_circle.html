@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body onload="draw()">
+  <canvas id="sketch" width="300" height="300"></canvas>
+  <script>
+      function draw() {
+        var sketch = document.getElementById('sketch');
+  			var context = sketch.getContext("2d");
+
+        // radius user input
+        var radiusstring = prompt("Please enter a radius:");
+        var radiusint = parseInt(radiusstring);
+
+        // Use a WHILE LOOP to ensure the user enters an acceptable radius value!
+        while (radiusint > 150) {
+          radiusstring = prompt("That Radius value you entered is to high. Type in a different value please:");
+        }
+
+
+        var color = prompt("Enter a color (red, green, or blue.)");
+
+        while (color !== "red" && color !== "green" && color !== "blue)")
+          color = prompt("Enter a color (red, green, or blue.)");
+
+
+         // define and fill hex code based on the user input height
+         if (color === "red") {
+           	context.fillStyle = "#00ff00";
+         } else if (color === "green") {
+           	context.fillStyle = "#00ff00";
+         } else if (color === "blue")  {
+           	context.fillStyle = "#00ff00";
+         }
+      
+
+    // now, using the user-submitted input stuff, draw that circle!!!
+    context.beginPath();
+    context.arc(150, 150, radiusint, 0, 2 * Math.PI, true);
+    context.closePath();
+    context.fill();
+  }
+
+
+
+
+  </script>
+
+  </body>
+</html>

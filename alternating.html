@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body onload="draw()">
+  <canvas id="sketch" width="300" height="300"></canvas>
+  <script>
+      function draw() {
+        var sketch = document.getElementById('sketch');
+  			var context = sketch.getContext("2d");
+
+        var userstring = prompt("How many pairs of squares and circles would you like?");
+        var usernum = parseInt(userstring);
+        var thismuch = usernum * 2 - 1;
+
+        for (var i = 0; i <= thismuch; i++) {
+          if (i % 2 == 0) { // mod 2 == 0 means EVEN NUMBERS
+            // GREEN SQUARES:
+            	context.fillStyle = "#00ff00"; // GENERIC GREEN
+              // context.fillRect(x, y, width, height);
+          	  context.fillRect((i * 25),20,20,20);
+
+              } else {
+                // BLUE CIRCLES:
+                context.fillStyle = "#0000ff"; // GENERIC BLUE
+                context.beginPath();
+                context.arc((i * 25 + 10),30,10,0,2 * Math.PI, true);
+                context.closePath();
+                context.fill();
+                  // context.arc(x, y, radius, start angle, end angle, clockwise);
+
+            }
+              }
+
+          }
+  </script>
+  </body>
+</html>
